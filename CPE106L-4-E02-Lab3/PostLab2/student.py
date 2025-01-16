@@ -1,3 +1,12 @@
+#PostLab 2
+
+"""
+This exercise assumes that you have completed Programming Exercise 1.
+Place several Student objects containing different names into a list and shuffle it.
+Then run the sort method with this list and display all of the students’ information. (LO: 10.1, 10.2)
+
+"""
+
 """
 File: student.py
 Resources to manage a student's name and test scores.
