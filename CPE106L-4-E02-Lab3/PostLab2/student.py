@@ -36,7 +36,7 @@ class Student(object):
    
     def getAverage(self):
         """Returns the average score."""
-        return sum(self.scores) / len(self._scores)
+        return sum(self.scores) / len(self.scores)
     
     def getHighScore(self):
         """Returns the highest score."""
@@ -46,14 +46,46 @@ class Student(object):
         """Returns the string representation of the student."""
         return "Name: " + self.name  + "\nScores: " + \
                " ".join(map(str, self.scores))
+               
+    def __eq__(self,other):
+        return self.getAverage() == other.getAverage()
+    def __lt__(self,other):
+        return self.getAverage() < other.getAverage()
+    def __ge__(self,other):
+        return self.getAverage() >= other.getAverage()
 
 def main():
     """A simple test."""
-    student = Student("Ken", 5)
-    print(student)
-    for i in range(1, 6):
-        student.setScore(i, 100)
-    print(student)
+    student1 = Student("Ken", 3)
+    student2 = Student("Takakura", 3)
+    
+    """Title:"""
+    print("Welcome to the Grade Checker Program!")
+    print("Below are the Students' grades and comparisons. \n")
+    
+    print("--------------------")
+    """Setting Student Scores:"""
+    """Student 1"""
+    student1.setScore(1, 100)
+    student1.setScore(2, 87)
+    student1.setScore(3, 96)
+    print(student1)
+    
+    """Student 2"""
+    student2.setScore(1, 80)
+    student2.setScore(2, 91)
+    student2.setScore(3, 74)
+    print(student2)
+    print("--------------------")
+
+    print("\nComparing Students...")
+    
+    print("--------------------")
+    print("Student1 == Student2:", student1 == student2)
+    print("Student1 < Student2:", student1 < student2)
+    print("Student2 >= Student3:", student1 >= student2)
+    print("--------------------")
+
 
 if __name__ == "__main__":
     main()
