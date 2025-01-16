@@ -1,3 +1,14 @@
+#PostLab1
+
+"""
+ Add three methods to the Student class (in the file student.py) that compare two Student objects.
+ One method should test for equality.
+ A second method should test for less than.
+ The third method should test for greater than or equal to.
+ In each case, the method returns the result of the comparison of the two students’ names.
+ Include a main function that tests all of the comparison operators. (LO: 10.2
+"""
+
 """
 File: student.py
 Resources to manage a student's name and test scores.
