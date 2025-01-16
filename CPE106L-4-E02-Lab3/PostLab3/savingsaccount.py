@@ -4,21 +4,20 @@ This module defines the SavingsAccount class.
 """
 
 class SavingsAccount:
-    """This class represents a savings account
-    with the owner's name, PIN, and balance."""
+    """This class represents a savings account with the owner's name, PIN, and balance."""
 
-    RATE = 0.02    # Single rate for all accounts
+    RATE = 0.02  # Single rate for all accounts
 
-    def __init__(self, name, pin, balance = 0.0):
+    def __init__(self, name, pin, balance=0.0):
         self.name = name
         self.pin = pin
         self.balance = balance
 
     def __str__(self):
-        """Returns the string rep."""
-        result =  'Name:    ' + self.name + '\n' 
-        result += 'PIN:     ' + self.pin + '\n' 
-        result += 'Balance: ' + str(self.balance)
+        """Returns the string representation of the savings account."""
+        result = f'Name:    {self.name}\n'
+        result += f'PIN:     {self.pin}\n'
+        result += f'Balance: {self.balance}'
         return result
 
     def getBalance(self):
@@ -34,16 +33,12 @@ class SavingsAccount:
         return self.pin
 
     def deposit(self, amount):
-        """If the amount is valid, adds it
-        to the balance and returns None;
-        otherwise, returns an error message."""
+        """If the amount is valid, adds it to the balance and returns None; otherwise, returns an error message."""
         self.balance += amount
         return None
 
     def withdraw(self, amount):
-        """If the amount is valid, sunstract it
-        from the balance and returns None;
-        otherwise, returns an error message."""
+        """If the amount is valid, subtracts it from the balance and returns None; otherwise, returns an error message."""
         if amount < 0:
             return "Amount must be >= 0"
         elif self.balance < amount:
@@ -57,4 +52,9 @@ class SavingsAccount:
         interest = self.balance * SavingsAccount.RATE
         self.deposit(interest)
         return interest
+
+    def __lt__(self, other):
+        """Compares this account with another account by name for sorting."""
+        return self.name < other.name
+
 
