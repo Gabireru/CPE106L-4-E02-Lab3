@@ -12,6 +12,8 @@ File: student.py
 Resources to manage a student's name and test scores.
 """
 
+import random
+
 class Student(object):
     """Represents a student."""
 
@@ -56,38 +58,48 @@ class Student(object):
 
 def main():
     """A simple test."""
-    student1 = Student("Ken", 3)
-    student2 = Student("Takakura", 3)
+    """Create a list for student objects."""
+    students = [
+        Student("Ken", 3),
+        Student("Takakura", 3),
+        Student("Marshall", 3),
+        Student("Law", 3),
+    ]
+    
+    """Assign random scores to each student."""
+    for student in students:
+        for i in range(1, 4):
+            student.setScore(i, random.randint(50, 100))
+            
+    """Shuffle the list of students."""
+    random.shuffle(students)
     
     """Title:"""
     print("Welcome to the Grade Checker Program!")
-    print("Below are the Students' grades and comparisons. \n")
+    print("Below are the shuffled and sorted list of the students' scores based on average: \n")
     
-    print("--------------------")
-    """Setting Student Scores:"""
-    """Student 1"""
-    student1.setScore(1, 100)
-    student1.setScore(2, 87)
-    student1.setScore(3, 96)
-    print(student1)
-    
-    """Student 2"""
-    student2.setScore(1, 80)
-    student2.setScore(2, 91)
-    student2.setScore(3, 74)
-    print(student2)
-    print("--------------------")
+    """Display the shuffled list:"""
+    print("-----------------------------------------")
+    print("Shuffled list of students:")
+    print("-----------------------------------------")
+    for student in students:
+        print(student)
+        print()
 
-    print("\nComparing Students...")
+    """Sort the students by their average score"""
+    students.sort()
     
-    print("--------------------")
-    print("Student1 == Student2:", student1 == student2)
-    print("Student1 < Student2:", student1 < student2)
-    print("Student2 >= Student3:", student1 >= student2)
-    print("--------------------")
+    print("-----------------------------------------")
+    print("\nSorting list...\n")
+    
+    """Dsiplay the sorted list:"""
+    print("-----------------------------------------")
+    print("Sorted list of students by average score:")
+    print("-----------------------------------------")
+    for student in students:
+        print(student)
+        print()
 
 
 if __name__ == "__main__":
     main()
-
-
