@@ -52,9 +52,8 @@ class SavingsAccount:
         interest = self.balance * SavingsAccount.RATE
         self.deposit(interest)
         return interest
-
+        
     def __lt__(self, other):
         """Compares this account with another account by name for sorting."""
         return self.name < other.name
-
 
