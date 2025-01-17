@@ -48,13 +48,15 @@ class Student(object):
         """Returns the string representation of the student."""
         return "Name: " + self.name  + "\nScores: " + \
                " ".join(map(str, self.scores))
-               
+    
     def __eq__(self,other):
         return self.getAverage() == other.getAverage()
     def __lt__(self,other):
         return self.getAverage() < other.getAverage()
     def __ge__(self,other):
         return self.getAverage() >= other.getAverage()
+
+
 
 def main():
     """A simple test."""
